@@ -6,3 +6,4 @@
     * 3:08pm - following along with godot tutorial from freecodecamp.
     * 3:50 - break.
     *8:41pm - picking back up on tutorial
+    * 10:51pm - worked partially through godot tutorial.
