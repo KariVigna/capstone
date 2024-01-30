@@ -10,3 +10,5 @@
     1/28/24
     * 8:00am - picking back op on tutorial
     * 8:50am - working on player animation
+    1/29/24
+    * 5:00pm - I got my character to land on a platform! Feeling like this idea might work out
