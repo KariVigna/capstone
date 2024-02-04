@@ -13,13 +13,13 @@ namespace Capstone
 
         builder.Services.AddControllersWithViews();
         
-        // builder.Services.AddDbContext<CapstoneContext>(
-        //                         dbContextOptions => dbContextOptions
-        //                         .UseMySql(
-        //                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
-        //                         )
-        //                         )
-        //                     );
+        builder.Services.AddDbContext<CapstoneContext>(
+                                dbContextOptions => dbContextOptions
+                                .UseMySql(
+                                    builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
+                                )
+                                )
+                            );
 
         WebApplication app = builder.Build();
 
