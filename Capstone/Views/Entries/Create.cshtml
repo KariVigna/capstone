@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Capstone.Models.Entry;
+
+<h4>Add a new task</h4>
+
+@using (Html.BeginForm())
+    {
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+
+    <input type="submit" value="Add new task" class="btn btn-default" />
+    }

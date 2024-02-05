@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Capstone.Models;
+
+<h1>To Do:</h1>
+
+@if (@Model.Count == 0)
+{
+    <p>nothing to do today!</p>
+}
+else
+{
+    <ol>
+        @foreach (Entry entry in Model)
+        {
+            <li>@entry.Title</li>
+        }
+    </ol>
+}
+

@@ -4,4 +4,16 @@
 
 @using Capstone.Models;
 
-<h1>Capstone Title</h1>
+<h1>80HD Task Manager</h1>
+
+<h4>Today's Agenda:</h4>
+@* @if (Model["Entries"].Length == 0)
+{
+    <p>Nothing to do!</p>
+}
+<ol>
+    @foreach (Entry entry in Model["Entries"])
+    {
+        <li>@entry.Title</li>
+    }
+</ol> *@

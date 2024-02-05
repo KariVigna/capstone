@@ -20,3 +20,7 @@
     *6:34am - Models will be: Item, List, Priority.. Items can belong to one list, each item has one Priority level.
     *8:00am - App file structure in place, running into a server error.
     *7:40pm - Fixed the server error, finished setting up models and index controllers for each, made my first migration
+
+    2/04/24
+    *10:00am - thinking "out loud". Tasks will belong to TaskType and Days. Days can have many tasks. Task types can have many tasks. Days will not have task types, task types will not belong to days.
+    *4:40pm - spent most of the day building this, trying to understand each part (again), also trying to make it different from to-do-list practice project.

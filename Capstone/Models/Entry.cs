@@ -4,9 +4,9 @@ using System;
 
 namespace Capstone.Models
 {
-    public class Item
+    public class Entry
     {
-        public int ItemId { get; set; }
+        public int EntryId { get; set; }
         public string Title { get; set; }
         public DateTime DueDate { get; set; }
         public int CategoryId { get; set; }
