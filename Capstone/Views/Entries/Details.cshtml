@@ -1,0 +1,13 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Capstone.Models.Entry
+
+<h2>@Html.DisplayFor(model => model.Title)<h2>
+<h4>@Html.DisplayFor(model => model.Description)</h4>
+
+<hr>
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.EntryId })</p>
+<p>@Html.ActionLink("Delete", "Delete", new { id = Model.EntryId })</p>

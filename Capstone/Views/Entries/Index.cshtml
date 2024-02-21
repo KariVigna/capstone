@@ -15,7 +15,7 @@ else
     <ol>
         @foreach (Entry entry in Model)
         {
-            <li>@entry.Title</li>
+            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })</li>
         }
     </ol>
 }

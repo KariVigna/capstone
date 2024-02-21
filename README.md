@@ -24,3 +24,6 @@
     2/04/24
     *10:00am - thinking "out loud". Tasks will belong to TaskType and Days. Days can have many tasks. Task types can have many tasks. Days will not have task types, task types will not belong to days.
     *4:40pm - spent most of the day building this, trying to understand each part (again), also trying to make it different from to-do-list practice project.
+
+    2/11/24
+    *

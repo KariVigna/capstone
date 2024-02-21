@@ -4,19 +4,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Capstone.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Capstone.Controllers
 {
-    public class TasksController : Controller
+    public class EntriesController : Controller
     {
         private readonly CapstoneContext _db;
-        public TasksController(CapstoneContext db)
+        public EntriesController(CapstoneContext db)
         {
             _db = db;
         }
+
         public ActionResult Index()
         {
-            return View(_db.Entries.ToList());
+            List<Entry> model = _db.Entries.ToList();
+            return View(model);
         }
 
         public ActionResult Create()
@@ -28,6 +32,41 @@ namespace Capstone.Controllers
         public ActionResult Create(Entry entry)
         {
             _db.Entries.Add(entry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            return View(thisEntry);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            return View(thisEntry);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Entry entry)
+        {
+            _db.Entries.Update(entry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            return View(thisEntry);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            _db.Entries.Remove(thisEntry);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

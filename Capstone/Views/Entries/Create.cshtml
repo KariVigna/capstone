@@ -9,7 +9,9 @@
 @using (Html.BeginForm())
     {
     @Html.LabelFor(model => model.Title)
-    @Html.TextBoxFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)<br>
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
 
     <input type="submit" value="Add new task" class="btn btn-default" />
     }

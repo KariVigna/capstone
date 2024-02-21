@@ -3,17 +3,21 @@
 }
 
 @using Capstone.Models;
+@using System;
+@* @model Capstone.Models.Entry; *@
 
-<h1>80HD Task Manager</h1>
+<h1>Task-olotl</h1>
+<img class="axolotl3" src="~/images/axolotl3.png">
+<h3>Chore Tracker for Kids</h3>
 
 <h4>Today's Agenda:</h4>
-@* @if (Model["Entries"].Length == 0)
+@if (Model["entries"].Length == 0)
 {
-    <p>Nothing to do!</p>
+    <p>All finished for today!</p>
 }
 <ol>
-    @foreach (Entry entry in Model["Entries"])
+    @foreach (Entry entry in Model["entries"])
     {
-        <li>@entry.Title</li>
+        <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })</li>
     }
-</ol> *@
+</ol>

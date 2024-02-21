@@ -1,0 +1,16 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Capstone.Models.Entry
+
+<h2>You need parents' permission to delete this!</h2>
+
+@Html.DisplayFor(model => model.Title)
+
+<hr>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to List", "Index")
