@@ -11,7 +11,9 @@
     @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(model => model.Title)<br>
     @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)<br>
+    @Html.LabelFor(model => model.Reward)
+    @Html.TextBoxFor(model => model.Reward, new { @type = "num"})<br>
 
     <input type="submit" value="Add new task" class="btn btn-default" />
     }

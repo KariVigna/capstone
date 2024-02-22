@@ -17,6 +17,12 @@
     <br>
     @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
+    <br>
+    @Html.LabelFor(model => model.Reward)
+    @Html.EditorFor(model => model.Reward)
+    <br>
+    @Html.LabelFor(model => model.IsComplete)
+    @Html.CheckBoxFor(model => model.IsComplete)
 
 
     <input type="submit" value="Save" />

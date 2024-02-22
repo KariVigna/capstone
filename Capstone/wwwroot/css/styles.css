@@ -1,3 +1,7 @@
+div#header {
+
+}
+
 div#footer {
     position:fixed;
     bottom:0px;
@@ -6,6 +10,7 @@ div#footer {
     color:#CCC;
     background:#333;
     padding:8px;
+    align-items: center;
 }
 
 body {

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 using Capstone.Models;
 
 namespace Capstone
@@ -21,6 +22,10 @@ namespace Capstone
                                 )
                             );
 
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<CapstoneContext>()
+                .AddDefaultTokenProviders();
+
         WebApplication app = builder.Build();
 
         app.UseDeveloperExceptionPage();
@@ -28,6 +33,9 @@ namespace Capstone
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.MapControllerRoute(
             name: "default",
