@@ -11,6 +11,7 @@ namespace Capstone.Models
         public string Title { get; set; }
         public int Reward { get; set; }
         public string Description { get; set; }
+        [Display(Name = "Completed?")]
         public bool IsComplete { get; set; }
     }
 }
