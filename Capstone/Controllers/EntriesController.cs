@@ -70,5 +70,12 @@ namespace Capstone.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult AddReward(int id)
+        {
+            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            _db.
+
+        }
     }
 }
