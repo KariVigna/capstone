@@ -3,12 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Capstone.Models;
+using System.Threading.Tasks;
 
 namespace Capstone
 {
     class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ namespace Capstone
                             );
 
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CapstoneContext>()
                 .AddDefaultTokenProviders();
 
@@ -50,6 +52,28 @@ namespace Capstone
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
+
+        // using (var scope = app.Services.CreateScope())
+        // {
+        //     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+        //     string email = "admin@admin.com";
+        //     string password = "admin123";
+
+        //     if (await userManager.FindByEmailAsync(email) == null)
+        //     {
+        //         var user = new IdentityUser();
+        //         user.UserName = email;
+        //         user.Email = email;
+
+        //         await userManager.CreateAsync(user, password);
+
+        //         await userManager.AddToRoleAsync(user, "Admin");
+        //     }
+
+        // }
+
+
 
         app.Run();
         }

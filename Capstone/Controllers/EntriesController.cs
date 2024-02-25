@@ -71,11 +71,13 @@ namespace Capstone.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddReward(int id)
-        {
-            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
-            _db.
+        // public ActionResult AddReward(int id)
+        // {
+        //     Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+        //     if (reward != 0) {
+        //         _db.Entry
+        //     }
+        // }
 
         }
     }
-}
