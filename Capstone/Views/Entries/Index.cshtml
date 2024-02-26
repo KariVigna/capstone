@@ -12,11 +12,16 @@
 }
 else
 {
-    <ol>
+    
         @foreach (Entry entry in Model)
         {
-            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward</li>
+            @* @if (@entry.IsComplete == false) { *@
+                <ul>
+                <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward</li>
+                </ul>
+            @* } *@
         }
-    </ol>
 }
+
+@Html.ActionLink("Completed Tasks", "Completed", "Entries")
 

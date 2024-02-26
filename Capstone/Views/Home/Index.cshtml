@@ -6,20 +6,36 @@
 @using System;
 @* @model Capstone.Models.Entry; *@
 
-@* <h1>Task-olotl</h1>
-<h5>Chore Tracker for Kids</h5>
-<img class="axolotl3" src="~/images/axolotl3.png"> *@
-
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
-
-<h4>Today's Agenda:</h4>
-@if (Model["entries"].Length == 0)
+@if (User.Identity.IsAuthenticated)
 {
-    <p>All finished for today!</p>
-}
-<ol>
-    @foreach (Entry entry in Model["entries"])
+    <p>Hello @User.Identity.Name!</p>
+
+    <h4>Today's Agenda:</h4>
+    @if (Model["entries"].Length == 0)
     {
-        <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward </li>
+        <p>All finished for today!</p>
     }
-</ol>
+    <ol>
+        @foreach (Entry entry in Model["entries"])
+        {
+            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
+                @* @using (Html.BeginForm())
+                { *@
+                    @Html.CheckBoxFor(model => entry.IsComplete)
+                    <input type="submit" value="Save" />
+                @* } *@
+            </li>
+        }
+    </ol>
+
+
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-primary" value="Log out" />
+    }
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register", "Account")</p>
+    <p>@Html.ActionLink("Log in", "Login", "Account")</p>
+}

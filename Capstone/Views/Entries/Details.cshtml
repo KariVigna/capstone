@@ -9,5 +9,16 @@
 
 <hr>
 
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EntryId)
+
+    @Html.LabelFor(model => model.IsComplete)
+    @Html.CheckBoxFor(model => model.IsComplete)
+
+
+    <input type="submit" value="Save" />
+}
+
 <p>@Html.ActionLink("Edit", "Edit", new { id = Model.EntryId })</p>
 <p>@Html.ActionLink("Delete", "Delete", new { id = Model.EntryId })</p>

@@ -9,6 +9,7 @@ using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Diagnostics.Metrics;
 
 
 namespace Capstone.Controllers
@@ -18,6 +19,12 @@ namespace Capstone.Controllers
     {
         private readonly CapstoneContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
+        // public static int Counter = 0;
+
+        // public ActionResult AddCounter()
+        // {
+
+        // }
 
         public HomeController(UserManager<ApplicationUser> userManager, CapstoneContext db)
         {
@@ -33,6 +40,8 @@ namespace Capstone.Controllers
             model.Add("entries", entries);
             return View(model);
         }
+
+
 
     }
 }
