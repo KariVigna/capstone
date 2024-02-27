@@ -15,13 +15,11 @@ else
     
         @foreach (Entry entry in Model)
         {
-            @* @if (@entry.IsComplete == false) { *@
-                <ul>
-                <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward</li>
-                </ul>
-            @* } *@
+            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
+                    @Html.CheckBoxFor(model => entry.IsComplete)
+            </li>
         }
+        
 }
 
 @Html.ActionLink("Completed Tasks", "Completed", "Entries")
-

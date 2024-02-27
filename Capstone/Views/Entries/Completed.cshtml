@@ -4,3 +4,9 @@
 
 @using Capstone.Models;
 
+@foreach (Entry entry in Model["entries"])
+        {
+            @if (entry.IsComplete == true){
+            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward</li>
+        }
+    }

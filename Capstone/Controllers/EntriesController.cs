@@ -71,11 +71,12 @@ namespace Capstone.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ViewCompleted(Entry entry)
-        {
-            List<Entry> model = _db.Entries.ToList();
-            return View(model);
-        }
+        // [HttpGet]
+        // public ActionResult ViewCompleted()
+        // {
+        //     List<Entry> model = _db.Entries.ToList();
+        //     return View(model);
+        // }
 
         // public ActionResult AddReward(int id)
         // {
