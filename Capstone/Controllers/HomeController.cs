@@ -19,12 +19,6 @@ namespace Capstone.Controllers
     {
         private readonly CapstoneContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
-        // public static int Counter = 0;
-
-        // public ActionResult AddCounter()
-        // {
-
-        // }
 
         public HomeController(UserManager<ApplicationUser> userManager, CapstoneContext db)
         {
@@ -40,8 +34,5 @@ namespace Capstone.Controllers
             model.Add("entries", entries);
             return View(model);
         }
-
-
-
     }
 }

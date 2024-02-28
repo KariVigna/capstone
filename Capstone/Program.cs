@@ -73,8 +73,6 @@ namespace Capstone
 
         // }
 
-
-
         app.Run();
         }
     }

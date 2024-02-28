@@ -1,3 +1,6 @@
+.navbar-brand {
+font-size: 30px;
+}
 
 div#footer {
     position:fixed;
@@ -12,6 +15,7 @@ div#footer {
 
 body {
     background: lightblue;
+    padding-top: 100px;
 }
 
 .axolotl3 {

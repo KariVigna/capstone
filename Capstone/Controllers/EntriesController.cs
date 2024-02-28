@@ -78,9 +78,18 @@ namespace Capstone.Controllers
         //     return View(model);
         // }
 
-        // public ActionResult AddReward(int id)
+        // public ActionResult AddReward(int id, int rewardAmount)
         // {
+                // 1. use the id value to get the "Kid" from the database.
+                // 2. then add the rewardAmount to the Kid's Total property.
+                // 3. I have to decide which view to return.
+                // 3. a. remember to grab any data that the view needs from the database.
+                // 4. return view.
         //     Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+        //     Kid kidRecievingAward = _db.Kids.......
+        //     kidRecievingAward.Total += rewardAmount
+        //      _db.SaveChanges();
+
         //     if (reward != 0) {
         //         _db.Entry
         //     }
