@@ -38,6 +38,9 @@ namespace Capstone.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("IsParent")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
 
@@ -98,6 +101,9 @@ namespace Capstone.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<int>("KidId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Reward")
                         .HasColumnType("int");
 
@@ -107,6 +113,8 @@ namespace Capstone.Migrations
 
                     b.HasKey("EntryId");
 
+                    b.HasIndex("KidId");
+
                     b.ToTable("Entries");
                 });
 
@@ -115,6 +123,9 @@ namespace Capstone.Migrations
                     b.Property<int>("KidId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Total")
                         .HasColumnType("int");
@@ -263,6 +274,17 @@ namespace Capstone.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Capstone.Models.Entry", b =>
+                {
+                    b.HasOne("Capstone.Models.Kid", "Kid")
+                        .WithMany("Entries")
+                        .HasForeignKey("KidId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kid");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -312,6 +334,11 @@ namespace Capstone.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Capstone.Models.Kid", b =>
+                {
+                    b.Navigation("Entries");
                 });
 #pragma warning restore 612, 618
         }

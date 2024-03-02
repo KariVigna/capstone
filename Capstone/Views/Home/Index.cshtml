@@ -6,12 +6,14 @@
 @using System;
 @* @model Capstone.Models.Entry; *@
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hello @User.Identity.Name!</p>
+@* @if (User.Identity.IsAuthenticated) *@
+@* { *@
+    <p>Hello
+        @* @User.Identity.Name! *@
+        </p>
 
     <h4>Today's Agenda:</h4>
-    @if (Model["entries"].Length == 0)
+    @* @if (Model["entries"].Length == 0)
     {
         <p>All finished for today!</p>
     }
@@ -19,11 +21,12 @@
         @foreach (Entry entry in Model["entries"])
         {
             <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
-                @* @using (Html.BeginForm())
-                { *@
-                    @Html.CheckBoxFor(model => entry.IsComplete)
-                    @* <input type="submit" value="Save" />
-                } *@
+                    
+                    @using (Html.BeginForm())
+                        {
+                            @Html.CheckBoxFor(model => entry.IsComplete)
+                            <input type="submit" value="Save" />
+                        }
             </li>
         }
     </ol>
@@ -38,4 +41,4 @@ else
 {
     <p>@Html.ActionLink("Register", "Register", "Account")</p>
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
-}
+} *@
