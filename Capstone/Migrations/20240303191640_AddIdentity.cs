@@ -4,7 +4,7 @@
 
 namespace Capstone.Migrations
 {
-    public partial class AddRewards : Migration
+    public partial class AddIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

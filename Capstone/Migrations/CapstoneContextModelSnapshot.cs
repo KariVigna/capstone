@@ -47,9 +47,6 @@ namespace Capstone.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
@@ -133,17 +130,6 @@ namespace Capstone.Migrations
                     b.HasKey("KidId");
 
                     b.ToTable("Kids");
-                });
-
-            modelBuilder.Entity("Capstone.Models.Parent", b =>
-                {
-                    b.Property<int>("ParentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.HasKey("ParentId");
-
-                    b.ToTable("Parents");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

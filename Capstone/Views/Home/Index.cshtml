@@ -6,19 +6,19 @@
 @using System;
 @* @model Capstone.Models.Entry; *@
 
-@* @if (User.Identity.IsAuthenticated) *@
-@* { *@
+@if (User.Identity.IsAuthenticated)
+{
     <p>Hello
-        @* @User.Identity.Name! *@
+        @User.Identity.Name!
         </p>
 
     <h4>Today's Agenda:</h4>
-    @* @if (Model["entries"].Length == 0)
+    @if (Model.Count == 0)
     {
         <p>All finished for today!</p>
     }
     <ol>
-        @foreach (Entry entry in Model["entries"])
+        @foreach (Entry entry in Model)
         {
             <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
                     
@@ -41,4 +41,4 @@ else
 {
     <p>@Html.ActionLink("Register", "Register", "Account")</p>
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
-} *@
+}

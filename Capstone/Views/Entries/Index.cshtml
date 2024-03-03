@@ -2,17 +2,16 @@
     Layout = "_Layout";
 }
 
-@using Capstone.Models;
+@using Capstone.Models
 
 <h1>To Do:</h1>
 
-@if (Model.Count == 0)
+@if (Model["entries"].Count == 0)
 {
     <p>nothing to do today!</p>
 }
 else
 {
-<p>here</p>
     @foreach (Entry entry in Model["entries"])
     {
             <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
@@ -27,4 +26,5 @@ else
 }
 <hr/>
 
+@Html.ActionLink("Add New Task", "Create", "Entries")<br>
 @Html.ActionLink("Completed Tasks", "Completed", "Entries")
