@@ -23,30 +23,34 @@ body {
 
 
 .container a {
-    color: rgb(246, 186, 246);
-    text-transform: uppercase;
+    color: #FC9EAFFF;
     font-weight: bold;
-    font-family: 'Rocher';
     text-align: center;
     font-size: 25px;
-    font-palette: --Purples;
     text-decoration: none;
 }
 
 .container a:hover {
-    text-shadow: 1px 1px 2px #333;
+    text-shadow: 2px 3px 2px #333;
+    text-transform: uppercase;
 }
 
 .container {
     width: 300px;
-    color: rgb(246, 186, 246);
+    font-size: 25px;
+    color: #FC9EAFFF;
     border-radius: 20px;
     list-style-type: none;
     text-align: center;
+    text-shadow: 1px 1px 2px #333;
 }
 
 .axolotl3 {
     width: 30%;
+}
+
+.completed-task {
+
 }
 
 @font-face {
@@ -73,6 +77,16 @@ body {
     font-family: 'Rocher';
     text-align: center;
     font-size: 40px;
+    /* height: 0; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-palette: --Purples;
+}
+
+.purples-list {
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 20px;
     /* height: 0; */
     /* align-items: center; */
     /* justify-content: center; */

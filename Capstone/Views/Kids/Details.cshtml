@@ -16,7 +16,9 @@ else
     @foreach(Entry entry in Model.Entries)
     {
         <div class="container p-3 bg-primary">
-            <li><h3>@entry.Title</h3>@entry.Description<br>
+            <li><h3>
+                @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })</h3>
+            @entry.Description<br>
             <span class="badge badge-pill badge-warning"> @entry.Reward</span> </li>
         </div><br>
     }

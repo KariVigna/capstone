@@ -15,13 +15,21 @@ else
     @foreach (Entry entry in Model)
     {
         <div class="container p-2 bg-primary">
-            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
+        @if (!entry.IsComplete)
+        {
+            <li>@entry.Kid.Name<br>
+            @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward<img src="~/images/gold-coin.png" width="100" height="100" alt=""> 
                     @using (Html.BeginForm())
                         {
                             @Html.CheckBoxFor(Entry => entry.IsComplete)
                             <input type="submit" value="Save" />
                         }
             </li>
+        }else{
+            
+            <li>@entry.Kid.Name<br>
+            <strike>@entry.Title</strike></li>
+        }
         </div><br>
     }
         
@@ -29,6 +37,4 @@ else
 <hr/>
 
 @Html.ActionLink("Add New Task", "Create", "Entries")<br>
-@* @Html.ActionLink("Completed Tasks", "Completed", "Entries") *@
 
-</div>

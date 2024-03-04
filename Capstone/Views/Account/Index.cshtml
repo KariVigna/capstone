@@ -2,8 +2,8 @@
     Layout = "_Layout";
 }
 
-<h2>Authentication with Identity</h2>
-<hr />
+
+<div class="container p-2 bg-primary">
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
@@ -18,3 +18,4 @@ else
     <p>@Html.ActionLink("Log in", "Login")</p>
 }
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>
