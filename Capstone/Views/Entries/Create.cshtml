@@ -2,12 +2,18 @@
     Layout = "_Layout";
 }
 
-@model Capstone.Models.Entry;
+@model Capstone.Models.Entry
+@using Capstone.Models
+@using System;
 
-<h4>Add a new task</h4>
+<h4>Assign a task</h4>
 
+@* @if (Model["kids"].Length == 0)
+{
 <p><strong>You must @Html.ActionLink("add kid", "Create", "Kids") to assign a task</strong></p>
-
+}
+else
+{ *@
 @using (Html.BeginForm())
     {
     @Html.LabelFor(model => model.Kid)
@@ -21,3 +27,4 @@
 
     <input type="submit" value="Add new task" class="btn btn-default" />
     }
+@* } *@

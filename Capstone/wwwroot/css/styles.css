@@ -15,9 +15,66 @@ div#footer {
 
 body {
     background: lightblue;
-    padding-top: 100px;
+    padding-top: 170px;
+}
+
+.badge {
+}
+
+
+.container a {
+    color: rgb(246, 186, 246);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 25px;
+    font-palette: --Purples;
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-shadow: 1px 1px 2px #333;
+}
+
+.container {
+    width: 300px;
+    color: rgb(246, 186, 246);
+    border-radius: 20px;
+    list-style-type: none;
+    text-align: center;
 }
 
 .axolotl3 {
-    width: 10%;
+    width: 30%;
+}
+
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+@font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 1;
+}
+
+.nav-purples {
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 70px;
+    /* height: 0; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-palette: --Purples;
+}
+
+.purples {
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 40px;
+    /* height: 0; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    font-palette: --Purples;
 }

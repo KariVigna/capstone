@@ -5,7 +5,7 @@
 @model Capstone.Models.Kid
 @using Capstone.Models
 
-<h2>Tasks for @Html.DisplayFor(model => model.Name)</h2>
+<h2 class="purples">@Html.DisplayFor(model => model.Name)-olotl</h2>
 
 @if(Model.Entries.Count == 0)
 {
@@ -15,6 +15,9 @@ else
 {
     @foreach(Entry entry in Model.Entries)
     {
-        <li>@entry.Title : @entry.Description @entry.Reward</li>
+        <div class="container p-3 bg-primary">
+            <li><h3>@entry.Title</h3>@entry.Description<br>
+            <span class="badge badge-pill badge-warning"> @entry.Reward</span> </li>
+        </div><br>
     }
 }

@@ -5,6 +5,14 @@ namespace Capstone.ViewModels
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Parent?")]
+        public bool IsParent { get; set; }
+
+        [Required]
+        [Display(Name = "Your Name")]
+        public string FirstName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email Address")]
         public string Email { get; set; }

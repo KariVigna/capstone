@@ -6,44 +6,33 @@
 @using System;
 @* @model Capstone.Models.Entry; *@
 
+
 @if (User.Identity.IsAuthenticated)
-{
-    <p>Hello
-        @User.Identity.Name!
-        </p>
-        <p>@Model["entries"].Length</p>
-
-    <h4>Today's Agenda:</h4>
-    @if (Model["entries"].Length == 0)
+<p>Hello @Model["ApplicationUser"].FirstName</p>
+{   <h3>Task-olotl's</h3>
+    @if (Model["kids"].Length == 0)
     {
-        <p>All finished for today!</p>
+        <div class="container p-3 bg-primary">
+        <p>You have no kids</p>
+        </div>
     }
-    <ol>
-        @foreach (Entry entry in Model["entries"])
+    
+        @foreach (Kid kid in Model["kids"])
         {
-            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward | @entry.Kid.Name
-                    
-                    @using (Html.BeginForm())
-                        {
-                            @Html.CheckBoxFor(model => entry.IsComplete)
-                            <input type="submit" value="Save" />
-                        }
-            </li>
+        <ul>  
+            <div class="container p-2 bg-primary">
+            <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })</li>
+            </div>
+        </ul>
         }
-    </ol>
-
-
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-primary" value="Log out" />
-    }
+    <hr>
+@Html.ActionLink("See all tasks", "Index", "Entries")<br>
+@Html.ActionLink("See all Kids", "Index", "Kids")<br>
+@Html.ActionLink("Add New Task", "Create", "Entries")<br>
 }
 else
 {
     <p>@Html.ActionLink("Register", "Register", "Account")</p>
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
 }
-
-
-@Html.ActionLink("See all tasks", "Index", "Entries")
-@Html.ActionLink("See all Kids", "Index", "Kids")
+</div>

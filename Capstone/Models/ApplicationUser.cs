@@ -5,5 +5,6 @@ namespace Capstone.Models
     public class ApplicationUser : IdentityUser
     {
         public bool IsParent { get; set; }
+        public string FirstName { get; set; }
     }
 }
