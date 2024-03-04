@@ -3,6 +3,7 @@ using System;
 using Capstone.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone.Migrations
 {
     [DbContext(typeof(CapstoneContext))]
-    partial class CapstoneContextModelSnapshot : ModelSnapshot
+    [Migration("20240222042424_AddIdentity")]
+    partial class AddIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,9 +38,6 @@ namespace Capstone.Migrations
                         .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsParent")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -98,38 +97,15 @@ namespace Capstone.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("KidId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Reward")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("EntryId");
 
-                    b.HasIndex("KidId");
-
                     b.ToTable("Entries");
-                });
-
-            modelBuilder.Entity("Capstone.Models.Kid", b =>
-                {
-                    b.Property<int>("KidId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
-
-                    b.HasKey("KidId");
-
-                    b.ToTable("Kids");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -260,15 +236,6 @@ namespace Capstone.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Capstone.Models.Entry", b =>
-                {
-                    b.HasOne("Capstone.Models.Kid", "Kid")
-                        .WithMany("Entries")
-                        .HasForeignKey("KidId");
-
-                    b.Navigation("Kid");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -318,11 +285,6 @@ namespace Capstone.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Capstone.Models.Kid", b =>
-                {
-                    b.Navigation("Entries");
                 });
 #pragma warning restore 612, 618
         }

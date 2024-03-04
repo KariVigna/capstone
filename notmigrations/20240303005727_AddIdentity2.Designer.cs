@@ -3,6 +3,7 @@ using System;
 using Capstone.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone.Migrations
 {
     [DbContext(typeof(CapstoneContext))]
-    partial class CapstoneContextModelSnapshot : ModelSnapshot
+    [Migration("20240303005727_AddIdentity2")]
+    partial class AddIdentity2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +100,7 @@ namespace Capstone.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("KidId")
+                    b.Property<int>("KidId")
                         .HasColumnType("int");
 
                     b.Property<int>("Reward")
@@ -264,7 +266,9 @@ namespace Capstone.Migrations
                 {
                     b.HasOne("Capstone.Models.Kid", "Kid")
                         .WithMany("Entries")
-                        .HasForeignKey("KidId");
+                        .HasForeignKey("KidId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Kid");
                 });

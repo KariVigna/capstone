@@ -98,7 +98,7 @@ namespace Capstone.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int?>("KidId")
+                    b.Property<int>("KidId")
                         .HasColumnType("int");
 
                     b.Property<int>("Reward")
@@ -129,7 +129,7 @@ namespace Capstone.Migrations
 
                     b.HasKey("KidId");
 
-                    b.ToTable("Kids");
+                    b.ToTable("Kid");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -264,7 +264,9 @@ namespace Capstone.Migrations
                 {
                     b.HasOne("Capstone.Models.Kid", "Kid")
                         .WithMany("Entries")
-                        .HasForeignKey("KidId");
+                        .HasForeignKey("KidId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Kid");
                 });

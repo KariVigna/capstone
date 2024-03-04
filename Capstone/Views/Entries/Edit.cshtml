@@ -12,6 +12,9 @@
 {
     @Html.HiddenFor(model => model.EntryId)
 
+    @Html.LabelFor(model => model.Kid)
+    @Html.DropDownList("KidId")
+    <br>
     @Html.LabelFor(model => model.Title)
     @Html.EditorFor(model => model.Title)
     <br>

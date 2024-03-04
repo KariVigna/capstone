@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Capstone.Models;
 using System.Threading.Tasks;
 using Capstone.ViewModels;
+using System.Collections.Generic;
+using System;
 
 namespace Capstone.Controllers
 {

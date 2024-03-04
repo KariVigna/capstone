@@ -6,8 +6,12 @@
 
 <h4>Add a new task</h4>
 
+<p><strong>You must @Html.ActionLink("add kid", "Create", "Kids") to assign a task</strong></p>
+
 @using (Html.BeginForm())
     {
+    @Html.LabelFor(model => model.Kid)
+    @Html.DropDownList("KidId")<br>
     @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(model => model.Title)<br>
     @Html.LabelFor(model => model.Description)

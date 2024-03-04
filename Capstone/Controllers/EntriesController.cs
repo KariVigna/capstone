@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Capstone.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 namespace Capstone.Controllers
@@ -17,19 +19,24 @@ namespace Capstone.Controllers
         public ActionResult Index()
         {
             List<Entry> model = _db.Entries
-                                    // .Include(entry => entry.Kid)
+                                    .Include(entry => entry.Kid)
                                     .ToList();
             return View(model);
         }
 
         public ActionResult Create()
         {
+            ViewBag.KidId = new SelectList(_db.Kids, "KidId", "Name");
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(Entry entry)
         {
+            if (entry.KidId == 0)
+            {
+                return RedirectToAction("Create");
+            }
             _db.Entries.Add(entry);
             _db.SaveChanges();
             return RedirectToAction("Index");
@@ -37,13 +44,16 @@ namespace Capstone.Controllers
 
         public ActionResult Details(int id)
         {
-            Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            Entry thisEntry = _db.Entries
+                                    .Include(entry => entry.Kid)
+                                    .FirstOrDefault(entry => entry.EntryId == id);
             return View(thisEntry);
         }
 
         public ActionResult Edit(int id)
         {
             Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
+            ViewBag.KidId = new SelectList(_db.Kids, "KidId", "Name");
             return View(thisEntry);
         }
 
@@ -77,23 +87,26 @@ namespace Capstone.Controllers
         //     return View(model);
         // }
 
-        // public ActionResult AddReward(int id, int rewardAmt)
-        // {
+        public ActionResult AddReward(int id, int rewardAmt)
+        {
                 // 1. use the id value to get the "Kid" from the database.
                 // 2. then add the rewardAmount to the Kid's Total property.
                 // 3. I have to decide which view to return.
                 // 3. a. remember to grab any data that the view needs from the database.
                 // 4. return view.
         //     Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
-            // Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == id);
-            // thisKid.Total += rewardAmt;
-            // _db.SaveChanges();
-            // return RedirectToAction("Index");
+            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == id);
+            thisKid.Total += rewardAmt;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
 
         //     if (reward != 0) {
         //         _db.Entry
         //     }
-        // }
+        }
+
+        // [HttpPost]
+        // public ActionResult 
 
         // }
     }

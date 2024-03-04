@@ -11,16 +11,17 @@
     <p>Hello
         @User.Identity.Name!
         </p>
+        <p>@Model["entries"].Length</p>
 
     <h4>Today's Agenda:</h4>
-    @if (Model.Count == 0)
+    @if (Model["entries"].Length == 0)
     {
         <p>All finished for today!</p>
     }
     <ol>
-        @foreach (Entry entry in Model)
+        @foreach (Entry entry in Model["entries"])
         {
-            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward 
+            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward | @entry.Kid.Name
                     
                     @using (Html.BeginForm())
                         {
@@ -42,3 +43,7 @@ else
     <p>@Html.ActionLink("Register", "Register", "Account")</p>
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
 }
+
+
+@Html.ActionLink("See all tasks", "Index", "Entries")
+@Html.ActionLink("See all Kids", "Index", "Kids")
