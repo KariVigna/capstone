@@ -19,7 +19,9 @@ else
             <li><h3>
                 @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })</h3>
             @entry.Description<br>
-            <span class="badge badge-pill badge-warning"> @entry.Reward</span> </li>
+            <span class="badge badge-pill badge-warning">@entry.Reward
+                <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
+            </span></li>
         </div><br>
     }
 }

@@ -41,5 +41,20 @@ namespace Capstone.Controllers
                                 .FirstOrDefault(kid => kid.KidId == id);
             return View(thisKid);
         }
+
+        public ActionResult Delete(int id)
+        {
+            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == id);
+            return View(thisKid);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == id);
+            _db.Kids.Remove(thisKid);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

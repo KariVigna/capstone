@@ -4,16 +4,20 @@
 
 @using Capstone.Models
 
-<h1>All Kids</h1>
+<h1><center>All Kids</center></h1>
 
 @if (Model.Count == 0)
 {
-    <p>nothing to do today!</p>
+    <p>you have no children</p>
 }
 else
 {
     @foreach (Kid kid in Model)
     {
-        <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })</li>
+        <div class="container p-2 bg-primary">
+        <li>@kid.Name<br>
+        @Html.ActionLink("Tasks", "Details", "Kids", new { id = @kid.KidId })<br>
+        @Html.ActionLink("Delete?", "Delete", "Kids", new { id = @kid.KidId })</li>
+        </div><br>
     }
 }

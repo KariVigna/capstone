@@ -2,6 +2,10 @@
 font-size: 30px;
 }
 
+.nav-link:hover {
+    color: #FC9EAFFF
+}
+
 div#footer {
     position:fixed;
     bottom:0px;
@@ -14,11 +18,15 @@ div#footer {
 }
 
 body {
-    background: lightblue;
+    /* background: lightblue; */
+    background-image: url("images/sea.jpeg");
+    background-size: cover;
+
     padding-top: 170px;
 }
 
 .badge {
+    
 }
 
 
