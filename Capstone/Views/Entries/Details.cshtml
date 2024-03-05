@@ -4,10 +4,9 @@
 
 @model Capstone.Models.Entry
 
-
+<div class="container p-2 bg-primary">
 <h2>@Html.DisplayFor(model => model.Kid.Name)</h2>
 <h2>@Html.DisplayFor(model => model.Title)<h2>
-<h4>@Html.DisplayFor(model => model.Description)</h4>
 
 <hr>
 
@@ -21,6 +20,7 @@
 
     <input type="submit" value="Save" />
 }
+</div>
 
 <p>@Html.ActionLink("Edit", "Edit", new { id = Model.EntryId })</p>
 <p>@Html.ActionLink("Delete", "Delete", new { id = Model.EntryId })</p>

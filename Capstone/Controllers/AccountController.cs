@@ -40,8 +40,13 @@ namespace Capstone.Controllers
         }
         else
         {
-            ApplicationUser user = new ApplicationUser { UserName = model.Email };
+            ApplicationUser user = new ApplicationUser { 
+                                            UserName = model.Email,
+                                            FirstName = model.FirstName,
+                                            IsParent = model.IsParent };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            // string firstName = user.FirstName;
+            // bool isParent = user.IsParent;
             if (result.Succeeded)
             {
             return RedirectToAction("Index");

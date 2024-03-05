@@ -22,18 +22,22 @@
         {
         <ul>  
             <div class="container p-2 bg-primary">
-            <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })</li>
+            <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })<br>
+            Total <img src="~/css/images/gold-star.png" width="30" height="30" alt="">: @kid.Total <br>
+                
+            </li>
             </div>
         </ul>
         }
     <hr>
+<center>    
 @Html.ActionLink("See all tasks", "Index", "Entries")<br>
 @Html.ActionLink("See all Kids", "Index", "Kids")<br>
 @Html.ActionLink("Add New Task", "Create", "Entries")<br>
+</center>
 }
 else
 {
     <p>@Html.ActionLink("Register", "Register", "Account")</p>
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
 }
-</div></div>

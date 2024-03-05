@@ -2,11 +2,16 @@
     Layout = "_Layout";
 }
 
-@using Capstone.Models;
+@model Capstone.Models.Entry
 
-@foreach (Entry entry in Model["entries"])
-        {
-            @if (entry.IsComplete == true){
-            <li>@Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward</li>
-        }
-    }
+<h4>Finish a task? Claim your reward!</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EntryId)
+    
+    @Html.LabelFor(model => model.IsComplete)
+    @Html.CheckBoxFor(model => model.IsComplete)
+
+    <input type="submit" value="Save" />
+}
