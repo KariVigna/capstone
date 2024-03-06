@@ -9,7 +9,7 @@
 
 
 @if (User.Identity.IsAuthenticated)
-    {
+{
     
     @if (Model["kids"].Length == 0)
     {
@@ -23,8 +23,8 @@
         <ul>  
             <div class="container p-2 bg-primary">
             <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })<br>
-            Total <img src="~/css/images/gold-star.png" width="30" height="30" alt="">: @kid.Total <br>
-                
+            @* @kid.Entries.Count <br> *@
+            <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @kid.Total <br>
             </li>
             </div>
         </ul>

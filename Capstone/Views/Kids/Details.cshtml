@@ -6,21 +6,45 @@
 @using Capstone.Models
 
 <h2 class="purples">@Html.DisplayFor(model => model.Name)-olotl</h2>
+<center>
+    <span class="total">
+<img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @Html.DisplayFor(model => model.Total)
+</span></center>
 
 @if(Model.Entries.Count == 0)
 {
-    <p>Your task list is empty!</p>
+    <p>You have no tasks!</p>
 }
 else
 {
     @foreach(Entry entry in Model.Entries)
     {
-        <div class="container p-3 bg-primary">
-            <li><h3>
-                @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })<br>
-            <span class="badge badge-pill badge-warning">
-                @entry.Reward <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
-            </span></h3></li>
+        <div class="container p-2 bg-primary">
+        @if (!entry.IsComplete)
+        {
+            <li>
+            @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })
+            <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @entry.Reward
+                    @using (Html.BeginForm("TaskCompleted", "Entries", new { entryId = @entry.EntryId }))
+                        {
+                            <input type="submit" id="lightblue" value="Collect Stars" />
+                        }
+            </li>
+        }
+        else{
+            <li>@entry.Kid.Name<br>
+            <strike>@entry.Title</strike></li>
+            @using (Html.BeginForm("TaskUnCompleted", "Entries", new { entryId = @entry.EntryId }))
+                        {
+                            <input type="submit" value="Mark InComplete and Un-Reward Kid" />
+                        }
+        }
         </div><br>
     }
 }
+
+
+    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
+    {
+        <input type="submit" value="Clear Total" />
+    }

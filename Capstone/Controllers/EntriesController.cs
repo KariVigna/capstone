@@ -91,13 +91,12 @@ namespace Capstone.Controllers
 
             Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == entryId);
             Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == thisEntry.KidId);
-            // thisEntry.IsComplete = !thisEntry.IsComplete;
             thisEntry.IsComplete = true;
             thisKid.Total += thisEntry.Reward;
-            _db.Entries.Update(thisEntry);
+            _db.Entries.Remove(thisEntry);
             _db.Kids.Update(thisKid);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Kids", new { id = thisKid.KidId });
         }
 
         public ActionResult TaskUnCompleted(int entryId){
@@ -109,28 +108,7 @@ namespace Capstone.Controllers
             _db.Entries.Update(thisEntry);
             _db.Kids.Update(thisKid);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction();
         }
-
-        public ActionResult AddReward(int id, int rewardAmt)
-        {
-                // -1. use the id value to get the "Kid" from the database.
-                // -2. then add the rewardAmount to the Kid's Total property.
-                // 3. I have to decide which view to return.
-                // 3. a. remember to grab any data that the view needs from the database.
-                // 4. return view.
-        //     Entry thisEntry = _db.Entries.FirstOrDefault(entry => entry.EntryId == id);
-            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == id);
-            
-            thisKid.Total += rewardAmt;
-            _db.SaveChanges();
-            return RedirectToAction("Details", new { id = thisKid.KidId });
-
-        //     if (reward != 0) {
-        //         _db.Entry
-        //     }
-        }
-
-
     }
 }

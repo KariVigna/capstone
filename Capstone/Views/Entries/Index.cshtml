@@ -48,7 +48,7 @@ else
             @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward<img src="~/css/images/gold-star.png" width="30" height="30" alt=""> 
                     @using (Html.BeginForm("TaskCompleted", "Entries", new { entryId = @entry.EntryId }))
                         {
-                            <input type="submit" value="Mark Complete and Add Reward to Kid" />
+                            <input type="submit" value="Collect Stars" />
                         }
             </li>
         }else{
@@ -56,7 +56,7 @@ else
             <strike>@entry.Title</strike></li>
             @using (Html.BeginForm("TaskUnCompleted", "Entries", new { entryId = @entry.EntryId }))
                         {
-                            <input type="submit" value="Mark InComplete and Un-Reward Kid" />
+                            <input type="submit" value="jk, i didn't do this" />
                         }
         }
         </div><br>

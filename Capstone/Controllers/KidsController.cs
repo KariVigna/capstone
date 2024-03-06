@@ -56,5 +56,13 @@ namespace Capstone.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ClearTotal(int kidId)
+        {
+            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == kidId);
+            thisKid.Total = 0;
+            _db.Kids.Update(thisKid);
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Kids", new { id = thisKid.KidId });        }
     }
 }

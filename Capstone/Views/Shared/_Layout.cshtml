@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,6 +13,8 @@
         <link rel="stylesheet" href="~/css/styles.css">
     </head>
     <body>
+        @using Capstone.Models
+        @using System;
         @* @await Html.PartialAsync("Header") *@
         <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top justify-content-center">
         <div class="container-md">
@@ -27,16 +31,29 @@
             </li>
             
             <li class="nav-item">
-            <a class="nav-link" href="~/./entries/create">New Task</a>
-            </li>
-            
-            <li class="nav-item">
-            <a class="nav-link" href="~/./entries">View Tasks</a>
+            <a class="nav-link" href="~/./entries/create">Add Task</a>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="~/account">Account Settings</a>
+            <a class="nav-link" href="~/./kids/create">Add Kid</a>
             </li>
+            
+            @* @foreach (Kid kid in Model["Kids"])
+            {
+                <li class="nav-item">
+                @kid.Total 
+                <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
+            </li>
+            } *@
+            
+
+            @* <li class="nav-item">
+            <a class="nav-link" href="~/./entries">View Tasks</a>
+            </li> *@
+
+            @* <li class="nav-item">
+            <a class="nav-link" href="~/account">Account Settings</a>
+            </li> *@
 
             <li class="nav-item">
                 @if (User.Identity.IsAuthenticated)
