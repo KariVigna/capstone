@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Capstone.Controllers
 {
+    [Authorize]
     public class EntriesController : Controller
     {
         private readonly CapstoneContext _db;
@@ -93,7 +94,7 @@ namespace Capstone.Controllers
             Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == thisEntry.KidId);
             thisEntry.IsComplete = true;
             thisKid.Total += thisEntry.Reward;
-            _db.Entries.Remove(thisEntry);
+            _db.Entries.Update(thisEntry);
             _db.Kids.Update(thisKid);
             _db.SaveChanges();
             return RedirectToAction("Details", "Kids", new { id = thisKid.KidId });

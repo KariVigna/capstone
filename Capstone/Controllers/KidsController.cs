@@ -4,9 +4,11 @@ using Capstone.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Capstone.Controllers
 {
+    [Authorize]
     public class KidsController : Controller
     {
         private readonly CapstoneContext _db;

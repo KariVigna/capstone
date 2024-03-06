@@ -8,8 +8,15 @@
 <h2 class="purples">@Html.DisplayFor(model => model.Name)-olotl</h2>
 <center>
     <span class="total">
-<img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @Html.DisplayFor(model => model.Total)
-</span></center>
+        <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @Html.DisplayFor(model => model.Total)
+    </span>
+    @if(Model.Total != 0) {
+    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
+    {
+        <input type="submit" id="lightblue" value="Clear Total" />
+    }
+}
+</center>
 
 @if(Model.Entries.Count == 0)
 {
@@ -19,32 +26,28 @@ else
 {
     @foreach(Entry entry in Model.Entries)
     {
-        <div class="container p-2 bg-primary">
+        
         @if (!entry.IsComplete)
         {
-            <li>
-            @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })
-            <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @entry.Reward
-                    @using (Html.BeginForm("TaskCompleted", "Entries", new { entryId = @entry.EntryId }))
-                        {
-                            <input type="submit" id="lightblue" value="Collect Stars" />
-                        }
-            </li>
+            <div class="container p-2 bg-primary">
+                <li>
+                @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId })
+                <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @entry.Reward
+                        @using (Html.BeginForm("TaskCompleted", "Entries", new { entryId = @entry.EntryId }))
+                            {
+                                <input type="submit" id="lightblue" value="Collect Stars" />
+                            }
+                </li>
+            </div><br>
         }
-        else{
+        @* else{
             <li>@entry.Kid.Name<br>
             <strike>@entry.Title</strike></li>
             @using (Html.BeginForm("TaskUnCompleted", "Entries", new { entryId = @entry.EntryId }))
                         {
                             <input type="submit" value="Mark InComplete and Un-Reward Kid" />
                         }
-        }
-        </div><br>
+        } *@
+        
     }
 }
-
-
-    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
-    {
-        <input type="submit" value="Clear Total" />
-    }

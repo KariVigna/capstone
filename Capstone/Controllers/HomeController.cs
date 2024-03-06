@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Capstone.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Capstone.Controllers
 {

@@ -2,5 +2,17 @@
     Layout = "_Layout";
 }
 
-@model Capstone.Models.Entry
+@using Capstone.Models
 
+@foreach(Entry entry in Model.Entries)
+    {
+        
+        @if (entry.IsComplete)
+        {
+            <div class="container p-2 bg-primary">
+                <li>
+                    @entry.Title
+                </li>
+            </div>
+        }
+    }
