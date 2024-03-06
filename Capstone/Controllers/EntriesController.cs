@@ -81,12 +81,14 @@ namespace Capstone.Controllers
             return RedirectToAction("Index");
         }
 
-        // [HttpGet]
-        // public ActionResult ViewCompleted()
-        // {
-        //     List<Entry> model = _db.Entries.ToList();
-        //     return View(model);
-        // }
+        [HttpGet]
+        public ActionResult ViewCompleted()
+        {
+            List<Entry> model = _db.Entries
+                                    .Include(entry => entry.Kid)
+                                    .ToList();
+            return View(model);
+        }
 
         public ActionResult TaskCompleted(int entryId){
 
@@ -111,5 +113,7 @@ namespace Capstone.Controllers
             _db.SaveChanges();
             return RedirectToAction();
         }
+
+        // public ActionResult ViewCompletedTasks(Entry entry)
     }
 }

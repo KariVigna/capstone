@@ -4,12 +4,15 @@
 
 @model Capstone.Models.Kid
 
-<h2>Add a Kid</h2>
+<h1 class="purples">Add a Kid</h2>
+
+<div class="container p-3 bg-primary">
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
-    <input type="submit" value="Add new kid" />
+    <input type="submit" id="lightblue" value="Add new kid" />
 }
-
-<p>@Html.ActionLink("Show all Kids", "Index")</p>
+</div>
+<center>
+<p>@Html.ActionLink("Show all Kids", "Index")</p></center>

@@ -3,16 +3,21 @@
 }
 
 @using Capstone.Models
+@using System
 
-@foreach(Entry entry in Model.Entries)
+<h1 class="purples">Completed Tasks</h1>
+
+@foreach(Entry entry in Model)
     {
         
         @if (entry.IsComplete)
         {
             <div class="container p-2 bg-primary">
                 <li>
-                    @entry.Title
+                    @Html.ActionLink(@entry.Title, "Delete", "Entries", new { id = @entry.EntryId })
+                    
                 </li>
             </div>
+            <br>
         }
     }
