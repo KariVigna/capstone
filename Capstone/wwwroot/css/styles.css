@@ -6,22 +6,20 @@ font-size: 30px;
     color: #FC9EAFFF
 }
 
-div#footer {
+/* div#footer {
     position:fixed;
     bottom:0px;
     left:0px;
     width:100%;
-    color:#CCC;
+    color: #FC9EAFFF;
     background:#333;
     padding:8px;
     align-items: center;
-}
+} */
 
 body {
-    /* background: lightblue; */
     background-image: url("images/sea.jpeg");
     background-size: cover;
-
     padding-top: 170px;
 }
 
@@ -30,7 +28,7 @@ body {
     color: #FC9EAFFF;
     font-weight: bold;
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     text-decoration: none;
 }
 
@@ -44,7 +42,7 @@ body {
 
 .container {
     width: 300px;
-    font-size: 25px;
+    font-size: 20px;
     color: #FC9EAFFF;
     border-radius: 20px;
     list-style-type: none;
@@ -66,16 +64,11 @@ input[type=submit]#lightblue {
     padding:0px 5px;
     margin: 5px; 
     background:#72d2f2; 
-    border:0 none;
+    border:3 black;
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    font-size: small; 
-}
-
-small-heart {
-    size-adjust: 50%;
-    font-size: xx-small;
+    font-size: 15px; 
 }
 
 @font-face {

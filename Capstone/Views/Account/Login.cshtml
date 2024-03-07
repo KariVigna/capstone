@@ -19,8 +19,12 @@
         @Html.LabelFor(m => m.Password)<br>
         @Html.EditorFor(m => m.Password)
 <hr>
-        <input type="submit" value="Log in" />
+        <input type="submit" id="lightblue" value="Log in" />
     }
 
+@* @using (Html.BeginForm("Register", "Account", new { @class="button" }))
+{
+    <input type="button" id="lightblue" value="Register" />
+} *@
 <p>@Html.ActionLink("Register", "Register")</p>
 </div>

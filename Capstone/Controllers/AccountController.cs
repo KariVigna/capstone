@@ -47,6 +47,7 @@ namespace Capstone.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             // string firstName = user.FirstName;
             // bool isParent = user.IsParent;
+            ViewData["UserFirstName"] = user.FirstName;
             if (result.Succeeded)
             {
             return RedirectToAction("Index");
