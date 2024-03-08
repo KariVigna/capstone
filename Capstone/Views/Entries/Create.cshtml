@@ -19,22 +19,16 @@
 
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(model => model.Kid)
-
-        <br>
+        @Html.LabelFor(model => model.Kid)<br>
         @Html.DropDownList("KidId")
 
         <br>
-        @Html.LabelFor(model => model.Title)
+        @Html.LabelFor(model => model.Title)<br>
         @Html.TextBoxFor(model => model.Title)
 
         <br>
-        @Html.LabelFor(model => model.Description)
-        @Html.TextBoxFor(model => model.Description)
-
-        <br>
-        @Html.LabelFor(model => model.Reward)
-        @Html.TextBoxFor(model => model.Reward, new { @type = "num" })
+        @Html.LabelFor(model => model.Reward)<br>
+        @Html.EditorFor(model => model.Reward, new { @type = "num" })
 
         <br>
 

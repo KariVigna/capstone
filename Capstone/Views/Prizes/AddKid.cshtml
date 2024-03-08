@@ -3,19 +3,25 @@
 }
 
 @model Capstone.Models.Prize
+<center>
+<h2 class="purples">Reward Time!</h2>
 
-<h2>Reward Kid</h2>
+<div class="container p-3 bg-primary">
 
-<h4>Reward this prize to:: @Html.DisplayFor(model => model.Name)</h4>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.PrizeId)
 
-    @Html.Label("Select Kid")
+    @Html.Label("To: ")
     @Html.DropDownList("KidId")
 
-    <input type="submit" value="Save" />
+    <input type="submit" id="lightblue" value="Save" />
 }
+</div>
+</center>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div id="footer">
+@Html.ActionLink("Choose Different Prize", "Index")
+</div>

@@ -6,8 +6,8 @@
 @using System;
 
 <h1 class=purples>Hello 
-    @ViewData["UserFirstName"] 
-    @* @User.Identity.Name *@
+    @* @ViewData["UserFirstName"]  *@
+    @User.Identity.Name
     </h1>
 
 
@@ -23,23 +23,27 @@
     
         @foreach (Kid kid in Model["kids"])
         {
-        <ul>  
+        <ul>
+            <li>
             <div class="container p-2 bg-primary">
-            <li>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })<br>
+            @* <table>
+                <td>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })</td>
             @* @kid.Entries.Count <br> *@
-            <img src="~/css/images/gold-star.png" width="25" height="25" alt=""> @kid.Total <br>
-            </li>
+                @* <td><img src="~/css/images/gold-star.png" width="25" height="25" alt=""> @kid.Total </td>
+            </table>
+            <br>  *@
             </div>
+            </li>
         </ul>
         }
-    <hr>
-<center>    
-@Html.ActionLink("See all tasks", "Index", "Entries")<br>
-@Html.ActionLink("See all Kids", "Index", "Kids")<br>
-@Html.ActionLink("Add New Task", "Create", "Entries")<br>
-@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")<br>
 
-</center>
+<div id="footer">   
+@Html.ActionLink("See all tasks", "Index", "Entries") | 
+@Html.ActionLink("See all Kids", "Index", "Kids") | 
+@Html.ActionLink("Add New Task", "Create", "Entries") | 
+@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")
+</div> 
+
 }
 else
 {

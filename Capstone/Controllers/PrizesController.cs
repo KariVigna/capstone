@@ -53,15 +53,27 @@ namespace Capstone.Controllers
             {
                             Prize thisPrize = _db.Prizes.FirstOrDefault(prize => prize.PrizeId == prizeId);
                             Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == kidId);
+                            thisKid.Total -= thisPrize.Cost;
 
                 _db.KidPrizes.Add(new KidPrize() { KidId = kidId, PrizeId = prize.PrizeId });
-                thisPrize.Cost -= thisKid.Total;
-                _db.Prizes.Update(thisPrize);
+                // _db.KidPrizes.Update(thisKidPrize);
+                // _db.Prizes.Update(thisPrize);
                 _db.Kids.Update(thisKid);
                 _db.SaveChanges();
             }
-            return RedirectToAction("Index", new { id = prize.PrizeId });
+            return RedirectToAction("Index"
+            // , new { id = prize.PrizeId }
+            );
+        }
 
+        [HttpGet]
+        public ActionResult ViewClaimed()
+        {
+            List<KidPrize> model = _db.KidPrizes
+                                    .Include(kidPrize => kidPrize.Kid)
+                                    .Include(kidPrize => kidPrize.Prize)
+                                    .ToList();
+            return View(model);
         }
 
         // public ActionResult Edit(int id)

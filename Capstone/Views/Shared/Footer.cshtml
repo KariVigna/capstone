@@ -1,22 +1,4 @@
-@* <div id="footer"> *@
-@* @using Capstone.Models
+<div id="footer">
 
-@foreach (Kid kid in Model["Kids"]) {
-@kid.Name @kid.Total <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
-} *@
 
-    @* @Html.ActionLink("Entries", "Index", "Entries") | 
-    @Html.ActionLink("Add entry", "Create", "Entries") | 
-    @Html.ActionLink("Home", "Index", "Home") |
-    @if (User.Identity.IsAuthenticated)
-        {
-            @using (Html.BeginForm("LogOff", "Account"))
-            {
-                <input type="submit" class="btn btn-primary" value="Log out" />
-            }
-        }
-    else
-        {
-            @Html.ActionLink("Log in ", "Login") @Html.ActionLink("Register", "Register");
-        } *@
-@* </div> *@
+</div>

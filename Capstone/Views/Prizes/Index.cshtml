@@ -4,21 +4,29 @@
 
 @using Capstone.Models
 
+
 @foreach (Prize prize in Model)
 {
     <div class="container p-2 bg-primary">
-        @Html.ActionLink(@prize.Name, "AddKid", "Prizes", new { id = @prize.PrizeId }) <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
-        @prize.Cost 
-            @using (Html.BeginForm("AddKid", "Prizes", new { prizeId = @prize.PrizeId }))
+        <table>
+            <td>
+        @Html.ActionLink(@prize.Name, "AddKid", "Prizes", new { id = @prize.PrizeId })
+        </td>
+        <td>
+        @prize.Cost
+        <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
+        </td> 
+            @* @using (Html.BeginForm("AddKid", "Prizes"))
                 {
                     <input type="submit" id="lightblue" value="Claim Reward!" />
-                }
-    </div>
-    <br>
+                } *@
+        </table>
+    </div><br>
 }
 
-<div class="container p-2 bg-primary">
-@Html.ActionLink("Add New Prize", "Create", "Prizes")<br>
-@* @Html.ActionLink() *@
-@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")
+
+<div id="footer">
+@Html.ActionLink("Add New Prize", "Create", "Prizes") | 
+@Html.ActionLink("Completed Tasks", "ViewCompleted", "Entries") | 
+@Html.ActionLink("Claimed Prizes", "ViewClaimed", "Prizes")
 </div>

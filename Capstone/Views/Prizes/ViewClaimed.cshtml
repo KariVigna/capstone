@@ -1,0 +1,30 @@
+@{
+    Layout = "_Layout";
+}
+
+@model List<Capstone.Models.KidPrize>
+@using Capstone.Models
+@using System
+
+<h1 class="purples">Claimed Prizes</h1>
+
+<div class="container p-2 bg-primary">
+    <table class="prize-table">
+        <tr>
+            <th>Name</th>
+            <th>Prize</th>
+        </tr>
+        @foreach(KidPrize kidPrize in Model)
+            {
+                <tr>
+                <td>@kidPrize.Kid.Name</td>
+                <td>@kidPrize.Prize.Name</td>
+                </tr>
+            }
+    </table>
+</div>
+
+<div id="footer">
+    @Html.ActionLink("All Prizes", "Index", "Prizes") | 
+    @Html.ActionLink("All Kids", "Index", "Kids")
+</div>
