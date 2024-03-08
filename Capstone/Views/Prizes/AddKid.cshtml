@@ -1,0 +1,21 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Capstone.Models.Prize
+
+<h2>Reward Kid</h2>
+
+<h4>Reward this prize to:: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.PrizeId)
+
+    @Html.Label("Select Kid")
+    @Html.DropDownList("KidId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

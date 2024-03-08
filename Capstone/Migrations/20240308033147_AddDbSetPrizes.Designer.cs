@@ -3,6 +3,7 @@ using System;
 using Capstone.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone.Migrations
 {
     [DbContext(typeof(CapstoneContext))]
-    partial class CapstoneContextModelSnapshot : ModelSnapshot
+    [Migration("20240308033147_AddDbSetPrizes")]
+    partial class AddDbSetPrizes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,27 +137,6 @@ namespace Capstone.Migrations
                     b.ToTable("Kids");
                 });
 
-            modelBuilder.Entity("Capstone.Models.KidPrize", b =>
-                {
-                    b.Property<int>("KidPrizeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("KidId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrizeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("KidPrizeId");
-
-                    b.HasIndex("KidId");
-
-                    b.HasIndex("PrizeId");
-
-                    b.ToTable("KidPrizes");
-                });
-
             modelBuilder.Entity("Capstone.Models.Prize", b =>
                 {
                     b.Property<int>("PrizeId")
@@ -165,10 +146,15 @@ namespace Capstone.Migrations
                     b.Property<int>("Cost")
                         .HasColumnType("int");
 
+                    b.Property<int>("KidId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.HasKey("PrizeId");
+
+                    b.HasIndex("KidId");
 
                     b.ToTable("Prizes");
                 });
@@ -310,23 +296,15 @@ namespace Capstone.Migrations
                     b.Navigation("Kid");
                 });
 
-            modelBuilder.Entity("Capstone.Models.KidPrize", b =>
+            modelBuilder.Entity("Capstone.Models.Prize", b =>
                 {
                     b.HasOne("Capstone.Models.Kid", "Kid")
-                        .WithMany("JoinEntities")
+                        .WithMany("Prizes")
                         .HasForeignKey("KidId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Capstone.Models.Prize", "Prize")
-                        .WithMany("JoinEntities")
-                        .HasForeignKey("PrizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Kid");
-
-                    b.Navigation("Prize");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -384,12 +362,7 @@ namespace Capstone.Migrations
                 {
                     b.Navigation("Entries");
 
-                    b.Navigation("JoinEntities");
-                });
-
-            modelBuilder.Entity("Capstone.Models.Prize", b =>
-                {
-                    b.Navigation("JoinEntities");
+                    b.Navigation("Prizes");
                 });
 #pragma warning restore 612, 618
         }

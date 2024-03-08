@@ -6,23 +6,37 @@
 @using System;
 
 <center>
-<h1 class="purples">Assign a task</h1>
+    <h1 class="purples">Assign a task</h1>
 </center>
 
 <div class="container p-2 bg-primary">
 
-<p>@Html.ValidationMessageFor(model => model.KidId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+    <p>@Html.ValidationMessageFor(model => model.KidId, "", new
+            {
+                @class = "text-danger",
+                @style = "font-weight: 600;"
+            })</p>
 
-@using (Html.BeginForm())
+    @using (Html.BeginForm())
     {
-    @Html.LabelFor(model => model.Kid)<br>
-    @Html.DropDownList("KidId")<br>
-    @Html.LabelFor(model => model.Title)
-    @Html.TextBoxFor(model => model.Title)<br>
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)<br>
-    @Html.LabelFor(model => model.Reward)
-    @Html.TextBoxFor(model => model.Reward, new { @type = "num"})<br>
+        @Html.LabelFor(model => model.Kid)
 
-    <input type="submit" id="lightblue" value="Add new task" class="btn btn-default" />
+        <br>
+        @Html.DropDownList("KidId")
+
+        <br>
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+
+        <br>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+
+        <br>
+        @Html.LabelFor(model => model.Reward)
+        @Html.TextBoxFor(model => model.Reward, new { @type = "num" })
+
+        <br>
+
+        <input type="submit" id="lightblue" value="Add new task" class="btn btn-default" />
     }

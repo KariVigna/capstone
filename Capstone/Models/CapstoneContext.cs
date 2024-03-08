@@ -7,7 +7,8 @@ namespace Capstone.Models
     {
         public DbSet<Entry> Entries { get; set; }
         public DbSet<Kid> Kids { get; set; }
-        
+        public DbSet<Prize> Prizes { get; set; }
+        public DbSet<KidPrize> KidPrizes { get; set; }
         public CapstoneContext(DbContextOptions options) : base(options) { }
     }
 }

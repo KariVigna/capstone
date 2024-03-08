@@ -2,12 +2,11 @@ using System.Collections.Generic;
 
 namespace Capstone.Models
 {
-    public class Kid
+    public class Prize
     {
-        public int KidId { get; set; }
+        public int PrizeId { get; set; }
         public string Name { get; set; }
-        public int Total { get; set; }
-        public List<Entry> Entries { get; set; }
+        public int Cost { get; set; }
         public List<KidPrize> JoinEntities { get; set; }
     }
 }
