@@ -1,4 +1,25 @@
+@using Capstone.Models
+
 <div id="footer">
-
-
+    <table>
+        <tr>
+            <td>
+                <div id="footer-left">
+                @foreach (Kid kid in Model["kids"])
+                {
+                    @Html.ActionLink(@kid.Name + " " + @kid.Total, "Details", "Kids", new { id = @kid.KidId })
+                    <img src="~/css/images/gold-star.png" width="15" height="15" alt="">
+                }
+                </div>
+            </td>
+            <td>
+                @* <h4 class="purples">Parents' Corner</h4> *@
+                @Html.ActionLink("Claimed Prizes", "ViewClaimed", "Prizes") |
+                @Html.ActionLink("All Prizes", "Index", "Prizes") | 
+                @Html.ActionLink("All Kids", "Index", "Kids") | 
+                @Html.ActionLink("Add New Prize", "Create", "Prizes") | 
+                @Html.ActionLink("Completed Tasks", "ViewCompleted", "Entries")
+            </td>
+        </tr>
+    </table>
 </div>

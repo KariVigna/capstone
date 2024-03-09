@@ -10,12 +10,18 @@
     <span class="total">
         <img src="~/css/images/gold-star.png" width="30" height="30" alt=""> @Html.DisplayFor(model => model.Total)
     </span>
-    @if(Model.Total != 0) {
-    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
+    @if(Model.Total != 0)
     {
-        <input type="submit" id="lightblue" value="Clear Total" />
+    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
+        {
+            <input type="submit" id="lightblue" value="Clear Total" />
+        }
+        @using (Html.BeginForm("Index", "Prizes"))
+        {
+            <input type="submit" id="lightblue" value="Redeem Prizes!" />
+        }
     }
-}
+    
 </center>
 
 @if(Model.Entries.Count == 0)
@@ -37,6 +43,7 @@ else
                             {
                                 <input type="submit" id="lightblue" value="Collect Stars" />
                             }
+                
                 </li>
             </div><br>
         }
@@ -54,8 +61,5 @@ else
         
     }
 }
-
-<div id="footer">
     @Html.ActionLink("All Kids", "Index", "Home") | 
     @Html.ActionLink("Edit Kids", "Index", "Kids")
-</div>

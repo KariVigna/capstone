@@ -44,26 +44,21 @@ namespace Capstone.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddKid(Prize prize, int kidId, int prizeId)
+        public ActionResult AddKid(Prize prize, Kid kid, int kidId, int prizeId)
         {
             #nullable enable
             KidPrize? joinEntity = _db.KidPrizes.FirstOrDefault(join => (join.KidId == kidId && join.PrizeId == prize.PrizeId));
             #nullable disable
             if (joinEntity == null && kidId != 0)
             {
+                _db.KidPrizes.Add(new KidPrize() { KidId = kidId, PrizeId = prize.PrizeId });
                             Prize thisPrize = _db.Prizes.FirstOrDefault(prize => prize.PrizeId == prizeId);
                             Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == kidId);
                             thisKid.Total -= thisPrize.Cost;
-
-                _db.KidPrizes.Add(new KidPrize() { KidId = kidId, PrizeId = prize.PrizeId });
-                // _db.KidPrizes.Update(thisKidPrize);
-                // _db.Prizes.Update(thisPrize);
                 _db.Kids.Update(thisKid);
                 _db.SaveChanges();
             }
-            return RedirectToAction("Index"
-            // , new { id = prize.PrizeId }
-            );
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

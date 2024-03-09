@@ -14,7 +14,7 @@ div#footer {
     color: black;
     background:#3B71CA;
     padding:8px;
-    text-align: center;
+    text-align: right;
 }
 
 div#footer a {
@@ -24,6 +24,10 @@ div#footer a {
     /* text-align:center; */
     font-size: 20px;
     text-shadow: 1px 1px 2px #333;
+}
+
+div#footer-left {
+    text-align: left;
 }
 
 div#footer a:hover {
@@ -66,6 +70,8 @@ body {
     list-style-type: none;
     text-align: center;
     text-shadow: 1px 1px 2px #333;
+    border-style: outset;
+    border-color: #1b50d4;
 }
 
 .container-nav a {
