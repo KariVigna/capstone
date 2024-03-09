@@ -33,7 +33,7 @@ namespace Capstone.Controllers
         {
             _db.Kids.Add(kid);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Details(int id)

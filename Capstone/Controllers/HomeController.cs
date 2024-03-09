@@ -26,5 +26,10 @@ namespace Capstone.Controllers
             model.Add("kids", kids);
             return View(model);
         }
+
+        public ActionResult ParentPage()
+        {
+            return View();
+        }
     }
 }

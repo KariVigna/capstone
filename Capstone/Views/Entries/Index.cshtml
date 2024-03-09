@@ -7,7 +7,9 @@
 
 @if (Model.Count == 0)
 {
-    <p>nothing to do today!</p>
+    <div class="container p-2 bg-primary">
+    <p>@Html.ActionLink("Add some tasks", "Create", "Entries") to get started!</p>
+    </div>
 }
 else
 {  
@@ -25,16 +27,9 @@ else
                         {
                             <input type="submit" id="lightblue" value="Collect Stars" />
                         }
-                        
                 </li>
             </div>
             <br>
         }
     }
 }
-
-
-@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")
-
-
-

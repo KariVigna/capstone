@@ -19,11 +19,11 @@
     
     @if (Model["kids"].Length == 0)
     {
-        
-        <p>You have no kids</p>
-        
+        <div class="container p-1 bg-primary">
+        <p>@Html.ActionLink("Add a kid", "Create", "Kids") to get started!</p>
+        </div>
     }
-    
+    else{
         @foreach (Kid kid in Model["kids"])
         {
         <ul>
@@ -38,6 +38,7 @@
             </li>
         </ul>
         }
+    }
 
 }
 else
@@ -52,7 +53,7 @@ else
 </tr>
 </table>
 <center>
-@Html.ActionLink("See all tasks", "Index", "Entries")</center>
+</center>
 @* @Html.ActionLink("See all Kids", "Index", "Kids") |  *@
 @* @Html.ActionLink("Add New Task", "Create", "Entries") |  *@
 @* @Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries") *@

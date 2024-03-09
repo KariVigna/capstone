@@ -1,0 +1,53 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="purples">Parents' Corner</h1>
+<table>
+    <tr>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Claimed Prizes", "ViewClaimed", "Prizes")
+            </div><br>
+        </td>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Add Prizes", "Create", "Prizes")
+            </div><br>
+        </td>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("All Prizes", "Index", "Prizes")
+            </div><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("All Kids", "Index", "Kids")
+            </div><br>
+        </td>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Add Kid", "Create", "Kids")
+            </div><br>
+        </td>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Add Tasks", "Create", "Entries")
+            </div><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Completed Tasks", "ViewCompleted", "Entries")
+            </div><br>
+        </td>
+        <td>
+            <div class="container p-2 bg-primary">
+                @Html.ActionLink("Unfinished Tasks", "Index", "Entries")
+            </div><br>
+        </td>
+    </tr>
+</table>

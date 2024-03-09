@@ -10,16 +10,23 @@
 <img src="~/./css/images/axolotl-prize.gif" width="200" height="200">
 </center>
 
+@if (Model.Count ==0) {
+    <div class="container p-2 bg-primary">
+        @Html.ActionLink("Add Some Prizes!", "Create", "Prizes")
+    </div>
+}
 @foreach (Prize prize in Model)
 {
     <div class="container p-2 bg-primary">
         <table>
             <td>
-                @Html.ActionLink(@prize.Name, "AddKid", "Prizes", new { id = @prize.PrizeId })
+                @prize.Name
             </td>
             <td>
                 @prize.Cost
-                <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
+                <a href='@Url.Action("AddKid", "Prizes", new { id = @prize.PrizeId })'>
+                    <img src='@Url.Content("~/css/images/gold-star.png")' width="30" height="30" />
+                </a>
             </td> 
             @* @using (Html.BeginForm("AddKid", "Prizes"))
                 {

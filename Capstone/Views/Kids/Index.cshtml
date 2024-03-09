@@ -15,9 +15,16 @@ else
     @foreach (Kid kid in Model)
     {
         <div class="container p-2 bg-primary">
-        @kid.Name<br>
-        @Html.ActionLink("Tasks", "Details", "Kids", new { id = @kid.KidId }) | 
-        @Html.ActionLink("Delete?", "Delete", "Kids", new { id = @kid.KidId })
+            <table>
+                <tr>
+                    <td>
+                        @Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })
+                        <a href='@Url.Action("Delete", "Kids", new { id = @kid.KidId })'>
+                            <img src='@Url.Content("~/css/images/x.gif")' width="20" height="20" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
         </div><br>
     }
 }
