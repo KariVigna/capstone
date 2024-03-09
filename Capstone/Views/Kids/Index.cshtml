@@ -15,9 +15,9 @@ else
     @foreach (Kid kid in Model)
     {
         <div class="container p-2 bg-primary">
-        <li>@kid.Name<br>
-        @Html.ActionLink("Tasks", "Details", "Kids", new { id = @kid.KidId })<br>
-        @Html.ActionLink("Delete?", "Delete", "Kids", new { id = @kid.KidId })</li>
+        @kid.Name<br>
+        @Html.ActionLink("Tasks", "Details", "Kids", new { id = @kid.KidId }) | 
+        @Html.ActionLink("Delete?", "Delete", "Kids", new { id = @kid.KidId })
         </div><br>
     }
 }

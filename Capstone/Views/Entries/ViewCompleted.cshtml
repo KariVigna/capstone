@@ -6,23 +6,31 @@
 @using System
 
 <h1 class="purples">Completed Tasks</h1>
-
-@foreach(Entry entry in Model)
-    {
+<div class="container p-2 bg-primary">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Completed By</th>
+        </tr>
         
-        @if (entry.IsComplete)
-        {
-            <div class="container p-2 bg-primary">
-                <li>
-                    @entry.Kid.Name:
-                    @Html.ActionLink(@entry.Title, "Delete", "Entries", new { id = @entry.EntryId })
-                    
-                </li>
-            </div>
-            <br>
-        }
-    }
+        @foreach(Entry entry in Model)
+            {
+                
+                
+                @if (entry.IsComplete)
+                {
+                    <tr>
+                    <td>@entry.Kid.Name</td>
+                    <td>@Html.ActionLink(@entry.Title, "Delete", "Entries", new { id = @entry.EntryId })</td>
+                    </tr>
+                }
+                
+            }
+</table>
+</div>
 
 <div id="footer">
-    
+@Html.ActionLink("Home", "Index", "Home") |
+@Html.ActionLink("Unfinished Tasks", "Index", "Entries") |
+@Html.ActionLink("Claimed Prizes", "ViewClaimed", "Prizes") |
 </div>

@@ -18,7 +18,8 @@ else
         {
             <div class="container p-2 bg-primary">
                 <li> 
-            @entry.Kid.Name<br>
+            @* @entry.Kid.Name<br> *@
+            @Html.ActionLink(@entry.Kid.Name, "Details", "Kids", new { id = @entry.KidId })<br>
             @Html.ActionLink(@entry.Title, "Details", "Entries", new { id = @entry.EntryId }) @entry.Reward<img src="~/css/images/gold-star.png" width="30" height="30" alt=""> 
                     @using (Html.BeginForm("TaskCompleted", "Entries", new { entryId = @entry.EntryId }))
                         {

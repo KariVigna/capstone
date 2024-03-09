@@ -41,7 +41,7 @@ else
             </div><br>
         }
         else {
-            
+
         }
         @* else{
             <li>@entry.Kid.Name<br>
@@ -54,3 +54,8 @@ else
         
     }
 }
+
+<div id="footer">
+    @Html.ActionLink("All Kids", "Index", "Home") | 
+    @Html.ActionLink("Edit Kids", "Index", "Kids")
+</div>

@@ -4,24 +4,28 @@
 
 @model Capstone.Models.Prize
 <center>
-<h2 class="purples">Reward Time!</h2>
+
 
 <div class="container p-3 bg-primary">
-
+<h2 class="purples">Buy this Prize:</h2>
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.PrizeId)
 
-    @Html.Label("To: ")
+    @Html.Label("For: ")
     @Html.DropDownList("KidId")
 
     <input type="submit" id="lightblue" value="Save" />
 }
 </div>
+
+
+<img src="~/./css/images/axolotl-roll.gif" width="200" height="200">
+
 </center>
 
 <div id="footer">
-@Html.ActionLink("Choose Different Prize", "Index")
+@Html.ActionLink("Choose A Different Prize", "Index")
 </div>

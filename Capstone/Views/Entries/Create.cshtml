@@ -6,7 +6,7 @@
 @using System;
 
 <center>
-    <h1 class="purples">Assign a task</h1>
+    <h1 class="purples">Assign a Task</h1>
 </center>
 
 <div class="container p-2 bg-primary">
@@ -19,15 +19,15 @@
 
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(model => model.Kid)<br>
+        <strong>@Html.LabelFor(model => model.Kid)</strong><br>
         @Html.DropDownList("KidId")
 
         <br>
-        @Html.LabelFor(model => model.Title)<br>
+        <strong>@Html.LabelFor(model => model.Title)</strong><br>
         @Html.TextBoxFor(model => model.Title)
 
         <br>
-        @Html.LabelFor(model => model.Reward)<br>
+        <strong>@Html.LabelFor(model => model.Reward)</strong><br>
         @Html.EditorFor(model => model.Reward, new { @type = "num" })
 
         <br>

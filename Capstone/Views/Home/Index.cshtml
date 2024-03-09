@@ -10,7 +10,10 @@
     @User.Identity.Name
     </h1>
 
-
+<table>
+    <tr>
+    <td></td>
+    <td>
 @if (User.Identity.IsAuthenticated)
 {
     
@@ -25,24 +28,16 @@
         {
         <ul>
             <li>
-            <div class="container p-2 bg-primary">
-            @* <table>
-                <td>@Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })</td>
-            @* @kid.Entries.Count <br> *@
-                @* <td><img src="~/css/images/gold-star.png" width="25" height="25" alt=""> @kid.Total </td>
-            </table>
-            <br>  *@
+            <div class="container p-1 bg-primary">
+
+                @Html.ActionLink(@kid.Name, "Details", "Kids", new { id = @kid.KidId })<br>
+                <img src="~/css/images/gold-star.png" width="25" height="25" alt=""> @kid.Total
+
             </div>
+            <br>
             </li>
         </ul>
         }
-
-<div id="footer">   
-@Html.ActionLink("See all tasks", "Index", "Entries") | 
-@Html.ActionLink("See all Kids", "Index", "Kids") | 
-@Html.ActionLink("Add New Task", "Create", "Entries") | 
-@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")
-</div> 
 
 }
 else
@@ -52,4 +47,15 @@ else
     <p>@Html.ActionLink("Log in", "Login", "Account")</p>
     </div>
 }
+</td>
 
+<td></td>
+</tr>
+</table>
+
+<div id="footer">   
+@Html.ActionLink("See all tasks", "Index", "Entries") | 
+@Html.ActionLink("See all Kids", "Index", "Kids") | 
+@Html.ActionLink("Add New Task", "Create", "Entries") | 
+@Html.ActionLink("See Completed Tasks", "ViewCompleted", "Entries")
+</div> 
