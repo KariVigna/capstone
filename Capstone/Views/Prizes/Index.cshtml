@@ -15,12 +15,12 @@
     <div class="container p-2 bg-primary">
         <table>
             <td>
-        @Html.ActionLink(@prize.Name, "AddKid", "Prizes", new { id = @prize.PrizeId })
-        </td>
-        <td>
-        @prize.Cost
-        <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
-        </td> 
+                @Html.ActionLink(@prize.Name, "AddKid", "Prizes", new { id = @prize.PrizeId })
+            </td>
+            <td>
+                @prize.Cost
+                <img src="~/css/images/gold-star.png" width="30" height="30" alt="">
+            </td> 
             @* @using (Html.BeginForm("AddKid", "Prizes"))
                 {
                     <input type="submit" id="lightblue" value="Claim Reward!" />

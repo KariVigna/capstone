@@ -71,6 +71,15 @@ namespace Capstone.Controllers
             return View(model);
         }
 
+        // public ActionResult ClearClaimedTasks(int kidPrizeId)
+        // {
+        //     List<KidPrize> model = _db.KidPrizes
+        //                             .Include(kidPrize => kidPrize.Kid)
+        //                             .Include(kidPrize => kidPrize.Prize)
+        //                             .Remove;
+
+        // }
+
         // public ActionResult Edit(int id)
         // {
         //     Prize thisPrize = _db.Prizes.FirstOrDefault(prize => prize.PrizeId == id);

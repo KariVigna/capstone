@@ -21,10 +21,14 @@
                 {
                     <tr>
                     <td>@entry.Kid.Name</td>
-                    <td>@Html.ActionLink(@entry.Title, "Delete", "Entries", new { id = @entry.EntryId })</td>
+                    <td>@entry.Title</td>
+                    <td>
+                        <a href='@Url.Action("Delete", "Entries", new { id = @entry.EntryId })'>
+                            <img src='@Url.Content("~/css/images/x.gif")' width="20" height="20" />
+                        </a>
+                        </td>
                     </tr>
                 }
-                
             }
 </table>
 </div>

@@ -3,14 +3,16 @@
 }
 
 @model Capstone.Models.Entry
-
+<center>
 <h2>You need parents' permission to delete this!</h2>
 
-@Html.DisplayFor(model => model.Title)
+<div class="container p-3 bg-primary">
+"@Html.DisplayFor(model => model.Title)""
 
-<hr>
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" />
+    <input type="submit" id="lightblue" value="Delete" />
 }
-@Html.ActionLink("Back to List", "Index")
+</div>
+@Html.ActionLink("Back to List", "ViewCompleted", "Entries")
+</center>
