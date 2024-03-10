@@ -82,12 +82,13 @@ namespace Capstone.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewCompleted()
+        public ActionResult ViewCompleted(Entry entry)
         {
             List<Entry> model = _db.Entries
-                                    .Include(entry => entry.Kid)
+                                    .Include(entry => entry.IsComplete)
                                     .ToList();
-            return View(model);
+            // return RedirectToAction("ViewCompleted", "Entries");
+            return View();
         }
 
         public ActionResult TaskCompleted(int entryId){

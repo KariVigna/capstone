@@ -13,7 +13,7 @@
     </span>
     @if(Model.Total != 0)
     {
-    @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
+        @using (Html.BeginForm("ClearTotal", "Kids", new { kidId = @Model.KidId }))
         {
             <input type="submit" id="lightblue" value="Clear Total" />
         }
@@ -21,13 +21,21 @@
         {
             <input type="submit" id="lightblue" value="Redeem Prizes!" />
         }
+        @using (Html.BeginForm("ClaimedPrizes", "Prizes"))
+        {
+            <input type="submit" id="lightblue" value="Your prizes" />
+        }
     }
     
 </center>
 
 @if(Model.Entries.Count == 0)
 {
-    <p>You have no tasks!</p>
+    <p>
+        <center>
+            You have no tasks!
+        </center>
+    </p>
 }
 else
 {

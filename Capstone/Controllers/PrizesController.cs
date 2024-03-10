@@ -71,6 +71,19 @@ namespace Capstone.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult DeleteJoin(int joinId, int kidId, int prizeId)
+        {
+            Prize thisPrize = _db.Prizes.FirstOrDefault(prize => prize.PrizeId == prizeId);
+            Kid thisKid = _db.Kids.FirstOrDefault(kid => kid.KidId == kidId);
+            KidPrize joinEntry = _db.KidPrizes.FirstOrDefault(entry => entry.KidPrizeId == joinId);
+            _db.KidPrizes.Remove(joinEntry);
+            _db.Kids.Remove(thisKid);
+            _db.Prizes.Remove(thisPrize);
+            _db.SaveChanges();
+            return View("Index");
+        }
+
         // public ActionResult ClearClaimedTasks(int kidPrizeId)
         // {
         //     List<KidPrize> model = _db.KidPrizes

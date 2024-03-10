@@ -19,7 +19,16 @@
                 <tr>
                 <td>@kidPrize.Kid.Name</td>
                 <td>@kidPrize.Prize.Name</td>
+                <td>
+                    <a href='@Url.Action("DeleteJoin", "Prizes", new { id = kidPrize.KidPrizeId })'>
+                        <img src='@Url.Content("~/css/images/x.gif")' width="20" height="20" />
+                    </a>
+                </td>
                 </tr>
             }
     </table>
 </div>
+
+<span class="parentnav">
+    @Html.ActionLink("Back to Parent Page", "ParentPage", "Home")
+</span>
