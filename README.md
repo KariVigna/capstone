@@ -1,3 +1,66 @@
+# _Task-olotl_
+
+### By _**Kari Vigna**_
+
+### _An MVC C# application to track and reward chores for Children and their Families_
+
+## Technologies Used
+
+* C#
+* .NET 6Razor HTML
+* CSS
+* MySQL
+* Visual Studio Code
+* Git/Github
+
+## Description
+Task-olotl gives children and families a fun way to incentivize chore divying by earing stars and getting rewarded. Caregivers can assign tasks to different kids, decide how many stars they will earn, and offer a list of prizes for the child to redeem with their stars.
+
+## Set Up/Installation Requirements
+
+Install the `dotnet-ef` tool by running the following command in your terminal:
+
+```
+dotnet tool install --global dotnet-ef --version 6.0.0
+```
+
+### Set Up and Run Project
+1. Clone this repo.
+2. Open the terminal and navigate to this project's main directory called "Capstone.Solution".
+3. Within the production directory "Capstone", create new file: `appsettings.json`.
+4. Within `appsettings.json`, put in the following code. Make sure to replace the `uid` and `pwd` values in the MySQL database connection string with your own username and password for MySQL. 
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=gh-user;uid=[YOUR_USERNAME];pwd=[YOUR_MYSQL_PASSWORD];"
+  }
+}
+```
+5. Install all necessary packages by running `dotnet restore` in the shell while within the production directory "Capstone".
+6. Create the database using the migrations in the Capstone project. Open your shell (e.g., Terminal or GitBash) to the production directory "Capstone", and run `dotnet ef database update`. 
+7. Within the production directory "Capstone", run `dotnet watch run` in the command line to start the project server and open the webpage within your browser. 
+9. The Client side program will use the domain _http://localhost:5001_. 
+
+
+## Known Bugs
+
+* _Cannot delete "join" relationship between Prize and Kid_
+* _"Completed Tasks" view broken_
+
+
+## License
+
+MIT License
+Copyright (c) Kari Vigna 2024
+
 ### Research & Planning Log
 
 #### Log
