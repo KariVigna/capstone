@@ -3,6 +3,7 @@
 }
 
 @using Capstone.Models
+@* @model Capstone.Models.Entry *@
 @using System
 
 <h1 class="purples">Completed Tasks</h1>
@@ -15,13 +16,11 @@
         
         @foreach(Entry entry in Model)
             {
-                
-                
                 @if (entry.IsComplete)
                 {
                     <tr>
-                    <td>@entry.Kid.Name</td>
                     <td>@entry.Title</td>
+                    <td>@entry.Kid.Name</td>
                     <td>
                         <a href='@Url.Action("Delete", "Entries", new { id = @entry.EntryId })'>
                             <img src='@Url.Content("~/css/images/x.gif")' width="20" height="20" />
